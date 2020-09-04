@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.topbraid.shacl.validation.ValidationResult;
 
 @Slf4j
+@SuppressWarnings("MissingJavadocType")
 public class ValidationResultSeverityComparator implements Comparator<ValidationResult> {
 
     private static ShaclSeverity of(final ValidationResult result) {

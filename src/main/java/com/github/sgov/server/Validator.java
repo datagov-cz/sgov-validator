@@ -20,6 +20,7 @@ import org.topbraid.shacl.validation.ValidationReport;
 import org.topbraid.shacl.validation.ValidationUtil;
 
 @Slf4j
+@SuppressWarnings("MissingJavadocType")
 public class Validator {
 
     private final Set<File> glossaryRules = new HashSet<>();
