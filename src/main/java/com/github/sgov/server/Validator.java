@@ -1,12 +1,9 @@
 package com.github.sgov.server;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.jena.rdf.model.Model;
@@ -23,49 +20,42 @@ import org.topbraid.shacl.validation.ValidationUtil;
 @SuppressWarnings("MissingJavadocType")
 public class Validator {
 
-    private final Set<File> glossaryRules = new HashSet<>();
-    private final Set<File> modelRules = new HashSet<>();
-    private final Set<File> vocabularyRules = new HashSet<>();
+    private final Set<URL> glossaryRules = new HashSet<>();
+    private final Set<URL> modelRules = new HashSet<>();
+    private final Set<URL> vocabularyRules = new HashSet<>();
 
     /**
      * Validator constructor.
      */
     public Validator() {
-        final URL url = getClass().getClassLoader().getResource("./rules");
-        for (final File f : Objects.requireNonNull(new File(url.getPath()).listFiles(f ->
-            f.getName().matches("([gsm])[0-9]+.ttl")))) {
-            final String name = f.getName();
-            if (name.startsWith("g")) {
-                glossaryRules.add(f);
-            } else if (name.startsWith("m")) {
-                glossaryRules.add(f);
-            } else {
-                vocabularyRules.add(f);
-            }
+        for (int i = 1; i <= 10; i++) {
+            glossaryRules.add(getClass().getResource("/rules/g" + i + ".ttl"));
+        }
+        for (int i = 1; i <= 7; i++) {
+            modelRules.add(getClass().getResource("/rules/m" + i + ".ttl"));
+        }
+        for (int i = 1; i <= 1; i++) {
+            vocabularyRules.add(getClass().getResource("/rules/s" + i + ".ttl"));
         }
     }
 
-    public Set<File> getModelRules() {
+    public Set<URL> getModelRules() {
         return modelRules;
     }
 
-    public Set<File> getGlossaryRules() {
+    public Set<URL> getGlossaryRules() {
         return glossaryRules;
     }
 
-    public Set<File> getVocabularyRules() {
+    public Set<URL> getVocabularyRules() {
         return vocabularyRules;
     }
 
-    private Model getRulesModel(final Collection<File> rules) {
+    private Model getRulesModel(final Collection<URL> rules) throws IOException {
         final Model shapesModel = JenaUtil.createMemoryModel();
-        try {
-            for (File r : rules) {
-                shapesModel
-                    .read(new FileReader(r), null, FileUtils.langTurtle);
-            }
-        } catch (FileNotFoundException e) {
-            log.error("An error occurred during rule model construction.", e);
+        for (URL r : rules) {
+            shapesModel
+                .read(r.openStream(), null, FileUtils.langTurtle);
         }
         return shapesModel;
     }
@@ -78,15 +68,20 @@ public class Validator {
      * @param ruleSet   set of rules (see 'resources') used for validation
      * @return validation report
      */
-    public ValidationReport validate(final Model dataModel, final Set<File> ruleSet) {
+    public ValidationReport validate(final Model dataModel, final Set<URL> ruleSet)
+        throws IOException {
         log.info("Validating model of size {}", dataModel.size());
-        final Model shapesModel = getRulesModel(ruleSet);
+        final Model shapesModel;
+        shapesModel = getRulesModel(ruleSet);
 
-        shapesModel.read(Validator.class.getResourceAsStream("/inference-rules.ttl"), null,
+        shapesModel.read(
+            com.github.sgov.server.Validator.class.getResourceAsStream("/inference-rules.ttl"),
+            null,
             FileUtils.langTurtle);
 
         final Model inferredModel = RuleUtil
-            .executeRules(dataModel, shapesModel, null, new SimpleProgressMonitor("inference"));
+            .executeRules(dataModel, shapesModel, null,
+                new SimpleProgressMonitor("inference"));
         dataModel.add(inferredModel);
 
         final Resource report = ValidationUtil.validateModel(dataModel, shapesModel, true);
