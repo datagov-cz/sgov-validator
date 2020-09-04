@@ -29,14 +29,18 @@ public class Validator {
      */
     public Validator() {
         for (int i = 1; i <= 10; i++) {
-            glossaryRules.add(getClass().getResource("/rules/g" + i + ".ttl"));
+            glossaryRules.add(resource("g" + i));
         }
         for (int i = 1; i <= 7; i++) {
-            modelRules.add(getClass().getResource("/rules/m" + i + ".ttl"));
+            modelRules.add(resource("m" + i));
         }
         for (int i = 1; i <= 1; i++) {
-            vocabularyRules.add(getClass().getResource("/rules/s" + i + ".ttl"));
+            vocabularyRules.add(resource("s" + i));
         }
+    }
+
+    private URL resource(final String name) {
+        return getClass().getResource("/rules/" + name + ".ttl");
     }
 
     public Set<URL> getModelRules() {

@@ -1,6 +1,7 @@
 package com.github.sgov.server;
 
-import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.Set;
@@ -29,12 +30,13 @@ public class RulesTest {
 
     @ParameterizedTest(name = "Rule {0} for {1} (should be {2})")
     @CsvFileSource(resources = "/test-cases.csv", numLinesToSkip = 1)
-    public void testShaclRule(String rule, String output, String outcome) {
+    public void testShaclRule(String rule, String output, String outcome) throws IOException {
         log.info("Rule {}", rule);
-        testModel(Collections.singleton(new File(getClass().getResource("/rules/"+rule).getPath())), output, Outcome.valueOf(outcome));
+        testModel(Collections.singleton(getClass().getResource("/rules/" + rule)), output,
+            Outcome.valueOf(outcome));
     }
 
-    private void testModel(Set<File> ruleSet, String data, Outcome outcome) {
+    private void testModel(Set<URL> ruleSet, String data, Outcome outcome) throws IOException {
         log.info("- expects {} for data {}", outcome, data);
 
         final Model dataModel =
