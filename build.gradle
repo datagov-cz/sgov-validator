@@ -48,8 +48,16 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/opendata-mvcr/sgov-validator")
             credentials {
-                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
-                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
+                password = project.findProperty("gpr.key") ?: System.getenv("GPR_TOKEN")
+            }
+        }
+        maven {
+            name = "KbssMavenRepo"
+            url = "sftp://kbss.felk.cvut.cz:22/var/www/m2repo"
+            credentials {
+                username = project.findProperty("kbss.user") ?: System.getenv("KBSS_USER")
+                password = project.findProperty("kbss.password") ?: System.getenv("KBSS_PASSWORD")
             }
         }
     }
