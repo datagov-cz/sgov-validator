@@ -5,7 +5,6 @@ import java.net.URL;
 import java.text.MessageFormat;
 import java.util.Collections;
 import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.jena.ontology.OntDocumentManager;
 import org.apache.jena.ontology.OntModelSpec;
 import org.apache.jena.rdf.model.Model;
@@ -20,7 +19,6 @@ import org.topbraid.shacl.util.SHACLPreferences;
 import org.topbraid.shacl.validation.ValidationReport;
 import org.topbraid.shacl.vocabulary.SH;
 
-@Slf4j
 public class RulesTest {
 
     @BeforeEach
@@ -31,14 +29,11 @@ public class RulesTest {
     @ParameterizedTest(name = "Rule {0} for {1} (should be {2})")
     @CsvFileSource(resources = "/test-cases.csv", numLinesToSkip = 1)
     public void testShaclRule(String rule, String output, String outcome) throws IOException {
-        log.info("Rule {}", rule);
         testModel(Collections.singleton(getClass().getResource("/rules/" + rule)), output,
             Outcome.valueOf(outcome));
     }
 
     private void testModel(Set<URL> ruleSet, String data, Outcome outcome) throws IOException {
-        log.info("- expects {} for data {}", outcome, data);
-
         final Model dataModel =
             JenaUtil.createOntologyModel(OntModelSpec.OWL_DL_MEM_RDFS_INF, null);
 
@@ -49,10 +44,10 @@ public class RulesTest {
         final Validator validator = new Validator();
         final ValidationReport r = validator.validate(dataModel, ruleSet);
 
-        r.results().forEach(result -> log.info(MessageFormat
+        r.results().forEach(result -> System.out.println((MessageFormat
             .format("[{0}] Node {1} failing for value {2} with message: {3} ",
                 result.getSeverity().getLocalName(), result.getFocusNode(), result.getValue(),
-                result.getMessage())));
+                result.getMessage()))));
 
         if (r.conforms()) {
             Assertions.assertEquals(outcome, Outcome.Pass);
