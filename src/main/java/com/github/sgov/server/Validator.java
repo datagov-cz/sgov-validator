@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
@@ -16,7 +15,6 @@ import org.topbraid.shacl.validation.ResourceValidationReport;
 import org.topbraid.shacl.validation.ValidationReport;
 import org.topbraid.shacl.validation.ValidationUtil;
 
-@Slf4j
 @SuppressWarnings("MissingJavadocType")
 public class Validator {
 
@@ -74,7 +72,6 @@ public class Validator {
      */
     public ValidationReport validate(final Model dataModel, final Set<URL> ruleSet)
         throws IOException {
-        log.info("Validating model of size {}", dataModel.size());
         final Model shapesModel;
         shapesModel = getRulesModel(ruleSet);
 

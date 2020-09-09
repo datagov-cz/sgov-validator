@@ -3,10 +3,8 @@ package com.github.sgov.server;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
-import lombok.extern.slf4j.Slf4j;
 import org.topbraid.shacl.validation.ValidationResult;
 
-@Slf4j
 @SuppressWarnings("MissingJavadocType")
 public class ValidationResultSeverityComparator implements Comparator<ValidationResult> {
 
