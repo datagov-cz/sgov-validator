@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.topbraid.shacl.vocabulary.SH;
 
 @Getter
-enum ShaclSeverity {
+public enum ShaclSeverity {
     VIOLATION(SH.Violation.getURI()),
     WARNING(SH.Warning.getURI()),
     INFO(SH.Info.getURI());
