@@ -1,0 +1,18 @@
+# weaker version of SKOS integrity constraint S27
+# https://www.w3.org/TR/2009/REC-skos-reference-20090818/#L2422
+#
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g12
+    a              sh:NodeShape ;
+    sh:severity    sh:Violation ;
+    sh:message     "Dva pojmy nesmí být propojeny v hierarchii a současně propojeny mimo ni."@cs,
+                   "Two terms cannot be linked in a hierarchy as well as out of it."@en ;
+    sh:targetClass skos:Concept ;
+    sh:property     [
+        sh:path skos:related ;
+        sh:disjoint skos:broader ;
+    ]
+.

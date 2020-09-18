@@ -6,13 +6,14 @@ j-sgov-obecný:g8
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
     sh:message     "Identifikátor pojmu má chybný jmenný prostor."@cs,
-                   "Concept identifier has incorrect namespace."@en ;
+                   "Term identifier has incorrect namespace."@en ;
     sh:targetClass skos:Concept ;
     sh:sparql      [ a         sh:SPARQLConstraint ;
                      sh:select """
+            PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 			SELECT $this (?namespace AS ?value)
 			{
-				$this <http://www.w3.org/2004/02/skos/core#inScheme> ?glossary .
+				$this skos:inScheme ?glossary .
 				?glossary <http://purl.org/vocab/vann/preferredNamespaceUri> ?namespace .
 				BIND(str($this) AS ?iri)
 				FILTER(!strstarts(?iri,?namespace))

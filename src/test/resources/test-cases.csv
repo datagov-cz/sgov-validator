@@ -6,11 +6,11 @@ g2.ttl ,rule-test-cases/concept-with-czech-label-and-definition.ttl ,Pass
 g3.ttl ,rule-test-cases/concept-with-multiple-czech-definitions.ttl ,Violation
 g4.ttl ,rule-test-cases/concept-empty.ttl                           ,Warning
 g4.ttl ,rule-test-cases/concept-with-czech-label-and-definition.ttl ,Pass
-g5.ttl ,rule-test-cases/concept-with-too-long-label.ttl             ,Violation
-g5.ttl ,rule-test-cases/concept-with-too-short-label.ttl            ,Violation
+g5.ttl ,rule-test-cases/concept-with-too-long-label.ttl             ,Info
+g5.ttl ,rule-test-cases/concept-with-too-short-label.ttl            ,Info
 g5.ttl ,rule-test-cases/concept-with-correct-label.ttl              ,Pass
-g6.ttl ,rule-test-cases/concept-with-too-long-definition.ttl        ,Warning
-g6.ttl ,rule-test-cases/concept-with-too-short-definition.ttl       ,Warning
+g6.ttl ,rule-test-cases/concept-with-too-long-definition.ttl        ,Info
+g6.ttl ,rule-test-cases/concept-with-too-short-definition.ttl       ,Info
 g6.ttl ,rule-test-cases/concept-with-correct-definition.ttl         ,Pass
 g7.ttl ,rule-test-cases/concept-empty.ttl                           ,Violation
 g7.ttl ,rule-test-cases/concept-with-multiple-glossaries.ttl        ,Violation
@@ -18,8 +18,9 @@ g7.ttl ,rule-test-cases/concept-with-single-glossary.ttl            ,Pass
 g8.ttl ,rule-test-cases/concept-with-wrong-namespace.ttl            ,Violation
 g8.ttl ,rule-test-cases/concept-with-correct-namespace.ttl          ,Pass
 g9.ttl ,rule-test-cases/two-concepts-with-the-same-label.ttl        ,Violation
-g10.ttl,rule-test-cases/concept-with-invalid-iri.ttl      						    ,Violation
-g10.ttl,rule-test-cases/concept-with-valid-iri.ttl								          ,Pass
+g10.ttl,rule-test-cases/concept-synonym-equals-preflabel-of-another-one.ttl        ,Info
+g11.ttl,rule-test-cases/concept-with-same-alt-label-and-pref-label.ttl      	        ,Violation
+g11.ttl,rule-test-cases/concept-with-same-hidden-label-and-pref-label.ttl      	        ,Violation
 m1.ttl ,rule-test-cases/concept-with-event-type.ttl                 ,Pass
 m1.ttl ,rule-test-cases/concept-with-intrinsic-trope-type.ttl       ,Pass
 m1.ttl ,rule-test-cases/concept-with-object-type.ttl                ,Pass
@@ -70,3 +71,5 @@ m5.ttl ,rule-test-cases/role-specializing-two-kinds.ttl             ,Violation
 m6.ttl ,rule-test-cases/kind-specializing-role.ttl                  ,Violation
 m6.ttl ,rule-test-cases/kind-specializing-phase.ttl                 ,Violation
 m7.ttl ,rule-test-cases/category-specializing-kind.ttl              ,Violation
+s2.ttl,rule-test-cases/concept-with-invalid-iri.ttl      			,Violation
+s2.ttl,rule-test-cases/concept-with-valid-iri.ttl					,Pass

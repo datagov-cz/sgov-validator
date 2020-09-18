@@ -2,21 +2,18 @@
 @prefix sh:            <http://www.w3.org/ns/shacl#> .
 @prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
 
-j-sgov-obecný:g9
+j-sgov-obecný:g10
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
-    sh:message     "Pojem má stejný název jako jiný ze stejného glosáře."@cs,
-                   "The term has the same preferred label as another one from the same glossary."@en ;
+    sh:message     "IRI pojmu má chybný tvar, musí začínat https://slovník.gov.cz."@cs,
+                   "Concept IRI has incorrect shape, must begin with https://slovník.gov.cz."@en ;
     sh:targetClass skos:Concept ;
     sh:sparql      [ a         sh:SPARQLConstraint ;
                      sh:select """
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-			SELECT $this (?another AS ?value)
+			SELECT $this (?glossary AS ?value)
 			{
-				$this skos:inScheme ?glossary ;
-				    skos:prefLabel ?label .
-				?another skos:inScheme ?glossary ;
-				    skos:prefLabel ?label .
-				FILTER($this != ?another)
+				$this skos:inScheme ?glossary .
+				FILTER(!strstarts(str($this),"https://slovník.gov.cz"))
 			}""" ; ]
 .

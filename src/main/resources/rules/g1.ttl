@@ -1,3 +1,6 @@
+# SKOS integrity constraint S14
+# https://www.w3.org/TR/2009/REC-skos-reference-20090818/#L1567
+#
 @prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
 @prefix sh:            <http://www.w3.org/ns/shacl#> .
 @prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
@@ -5,8 +8,8 @@
 j-sgov-obecný:g1
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
-    sh:message     "Pojem má více identifikačních názvů v jednom jazyce (povolený je pouze jeden)."@cs,
-                   "The concept has more identification labels in a single language (only one is allowed)."@en ;
+    sh:message     "Pojem má více názvů v jednom jazyce (povolený je pouze jeden)."@cs,
+                   "The term has more preferred labels in a single language (only one is allowed)."@en ;
     sh:targetClass skos:Concept ;
     sh:sparql      [ a         sh:SPARQLConstraint ;
                      sh:select """

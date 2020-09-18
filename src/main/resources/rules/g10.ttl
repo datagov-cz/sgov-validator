@@ -4,16 +4,19 @@
 
 j-sgov-obecný:g10
     a              sh:NodeShape ;
-    sh:severity    sh:Violation ;
-    sh:message     "IRI pojmu má chybný tvar, musí začínat https://slovník.gov.cz."@cs,
-                   "Concept IRI has incorrect shape, must begin with https://slovník.gov.cz."@en ;
+    sh:severity    sh:Info ;
+    sh:message     "Synonymum se shoduje s názvem jiného pojmu."@cs,
+                   "Synonym is the same as the preferred label of another term."@en ;
     sh:targetClass skos:Concept ;
     sh:sparql      [ a         sh:SPARQLConstraint ;
                      sh:select """
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-			SELECT $this (?glossary AS ?value)
+			SELECT $this (?another AS ?value)
 			{
-				$this skos:inScheme ?glossary .
-				FILTER(!strstarts(str($this),"https://slovník.gov.cz"))
+				$this skos:inScheme ?glossary ;
+				    skos:altLabel ?label .
+				?another skos:inScheme ?glossary ;
+				    skos:prefLabel ?label .
+				FILTER($this != ?another)
 			}""" ; ]
 .

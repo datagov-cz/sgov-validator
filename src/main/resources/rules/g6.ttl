@@ -4,9 +4,9 @@
 
 j-sgov-obecný:g6a
     a              sh:NodeShape ;
-    sh:severity    sh:Warning ;
-    sh:message     "Definice pojmu je příliš dlouhá (maximum je 1000 znaků)."@cs,
-                   "The concept definition is too long (1000 characters is max) ."@en ;
+    sh:severity    sh:Info ;
+    sh:message     "Definice je delší než 1000 znaků."@cs,
+                   "The definition is longer than 1000 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:definition ;
     sh:maxLength   1000
@@ -14,9 +14,9 @@ j-sgov-obecný:g6a
 
 j-sgov-obecný:g6b
     a              sh:NodeShape ;
-    sh:severity    sh:Warning ;
-    sh:message     "Definice pojmu je příliš krátka (minimum je 10 znaků)."@cs,
-                   "The concept definition is too short (10 characters is min) ."@en ;
+    sh:severity    sh:Info ;
+    sh:message     "Definice je krátší než 10 znaků."@cs,
+                   "The definition is shorter than 10 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:definition ;
     sh:minLength   10

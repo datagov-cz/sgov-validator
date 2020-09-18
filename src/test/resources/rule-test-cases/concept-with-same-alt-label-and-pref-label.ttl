@@ -1,0 +1,8 @@
+@prefix :     <https://slovník.gov.cz/příklad/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+:koncept-se-stejným-názvem-a-synonymem
+    a             skos:Concept ;
+    skos:prefLabel "x" ;
+    skos:altLabel "x"
+.

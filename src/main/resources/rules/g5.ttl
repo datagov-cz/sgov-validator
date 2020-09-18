@@ -4,9 +4,9 @@
 
 j-sgov-obecný:g5a
     a              sh:NodeShape ;
-    sh:severity    sh:Violation ;
-    sh:message     "Identifikační název pojmu je příliš dlouhý (maximum je 150 znaků)."@cs,
-                   "The preferred label is too long (150 characters is max) ."@en ;
+    sh:severity    sh:Info ;
+    sh:message     "Název je delší než 150 znaků."@cs,
+                   "The preferred label is longer than 150 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:prefLabel ;
     sh:maxLength   150
@@ -14,9 +14,9 @@ j-sgov-obecný:g5a
 
 j-sgov-obecný:g5b
     a              sh:NodeShape ;
-    sh:severity    sh:Violation ;
-    sh:message     "Identifikační název pojmu je příliš krátký (minimum jsou 2 znaky)."@cs,
-                   "The preferred label is too short (2 characters is min) ."@en ;
+    sh:severity    sh:Info ;
+    sh:message     "Název je kratší než 2 znaky."@cs,
+                   "The preferred label is shorter than 2 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:prefLabel ;
     sh:minLength   2
