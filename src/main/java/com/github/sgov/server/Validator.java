@@ -63,14 +63,16 @@ public class Validator {
     }
 
     /**
-     * Validates the given model with vocabulary data (glossaries, models) against the given
-     * ruleset.
+     * Validates the given model with vocabulary data (glossaries, models) against the given ruleset
+     * and inference rules.
      *
-     * @param dataModel model with data to validate
-     * @param ruleSet   set of rules (see 'resources') used for validation
+     * @param dataModel      model with data to validate
+     * @param ruleSet        set of rules (see 'resources') used for validation
+     * @param inferenceModel additional inference model
      * @return validation report
      */
-    public ValidationReport validate(final Model dataModel, final Set<URL> ruleSet)
+    public ValidationReport validate(final Model dataModel, final Set<URL> ruleSet,
+                                     final Model inferenceModel)
         throws IOException {
         final Model shapesModel;
         shapesModel = getRulesModel(ruleSet);
@@ -79,6 +81,9 @@ public class Validator {
             com.github.sgov.server.Validator.class.getResourceAsStream("/inference-rules.ttl"),
             null,
             FileUtils.langTurtle);
+        if (inferenceModel != null) {
+            shapesModel.add(inferenceModel);
+        }
 
         final Model inferredModel = RuleUtil
             .executeRules(dataModel, shapesModel, null,
@@ -88,5 +93,18 @@ public class Validator {
         final Resource report = ValidationUtil.validateModel(dataModel, shapesModel, true);
 
         return new ResourceValidationReport(report);
+    }
+
+    /**
+     * Validates the given model with vocabulary data (glossaries, models) against the given
+     * ruleset.
+     *
+     * @param dataModel model with data to validate
+     * @param ruleSet   set of rules (see 'resources') used for validation
+     * @return validation report
+     */
+    public ValidationReport validate(final Model dataModel, final Set<URL> ruleSet)
+        throws IOException {
+        return this.validate(dataModel, ruleSet, null);
     }
 }
