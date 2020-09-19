@@ -26,13 +26,13 @@ public class Validator {
      * Validator constructor.
      */
     public Validator() {
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 12; i++) {
             glossaryRules.add(resource("g" + i));
         }
         for (int i = 1; i <= 7; i++) {
             modelRules.add(resource("m" + i));
         }
-        for (int i = 1; i <= 1; i++) {
+        for (int i = 1; i <= 2; i++) {
             vocabularyRules.add(resource("s" + i));
         }
     }
