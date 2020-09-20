@@ -4,6 +4,7 @@ plugins {
     id "io.freefair.lombok" version "5.0.0-rc6"
     id 'java-library'
     id 'maven-publish'
+    id "de.undercouch.download" version "4.1.1"
 }
 
 quality {
@@ -24,7 +25,7 @@ compileJava {
 }
 
 group 'com.github.sgov'
-version = '1.4.3'
+version = '1.4.4'
 
 test {
     useJUnitPlatform()
@@ -39,6 +40,12 @@ dependencies {
 
 jar {
     archiveFileName = 'sgov-validator-' + new Date().format('yyyyMMddHHmmss') + '.jar'
+}
+
+task downloadFile(type: Download) {
+    src 'https://xn--slovnk-7va.gov.cz/sparql?default-graph-uri=https://slovn%C3%ADk.gov.cz/z%C3%A1kladn%C3%AD/mapov%C3%A1n%C3%AD&query=CONSTRUCT%20%7B?s%20?p%20?o%7D%20WHERE%20%7B?s%20?p%20?o%7D'
+    dest     new File('src/main/resources','z-sgov-mapping.ttl')
+    overwrite true
 }
 
 publishing {

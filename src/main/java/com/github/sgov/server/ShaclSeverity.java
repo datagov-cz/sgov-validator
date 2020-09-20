@@ -3,6 +3,9 @@ package com.github.sgov.server;
 import lombok.Getter;
 import org.topbraid.shacl.vocabulary.SH;
 
+/**
+ * SHACL severity.
+ */
 @Getter
 public enum ShaclSeverity {
     VIOLATION(SH.Violation.getURI()),
