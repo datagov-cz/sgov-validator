@@ -1,194 +1,259 @@
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dct:	<http://purl.org/dc/terms/> .
+@prefix foaf:	<http://xmlns.com/foaf/0.1/> .
 @prefix owl:	<http://www.w3.org/2002/07/owl#> .
+foaf:Image	rdf:type	owl:AnnotationProperty .
+@prefix dct:	<http://purl.org/dc/terms/> .
+dct:type	rdf:type	owl:AnnotationProperty .
 dct:Agent	rdf:type	owl:Class .
 @prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ns4:	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/> .
-dct:Agent	rdfs:subClassOf	ns4:agent .
+@prefix ns5:	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/> .
+dct:Agent	rdfs:subClassOf	ns5:agent .
+dct:publisher	rdf:type	owl:AnnotationProperty .
 @prefix skos:	<http://www.w3.org/2004/02/skos/core#> .
 skos:Concept	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:prvek .
-@prefix ns6:	<http://www.w3.org/ns/dcat#> .
-ns6:Dataset	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:prvek .
+@prefix ns7:	<http://www.w3.org/ns/dcat#> .
+ns7:Dataset	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/datov\u00E1-sada> .
-ns6:Distribution	rdf:type	owl:Class ;
+ns7:Distribution	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns4:typ-objektu	rdf:type	owl:Class .
-ns4:objekt	rdf:type	owl:Class .
+ns7:contactPoint	rdf:type	owl:AnnotationProperty .
+ns7:keyword	rdf:type	owl:AnnotationProperty .
+ns5:typ-objektu	rdf:type	owl:Class .
+ns5:objekt	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-ud\u00E1losti>	rdf:type	owl:Class .
-ns4:typ-vlastnosti	rdf:type	owl:Class .
-@prefix ns7:	<http://onto.fel.cvut.cz/ontologies/ufo/> .
-ns4:typ-vlastnosti	rdfs:subClassOf	ns7:intrinsic-trope-type .
-ns4:typ-vztahu	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns7:relator .
-ns4:vlastnost	rdf:type	owl:Class .
-ns7:type	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:typ .
-ns7:entity	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:prvek .
-ns4:druh	rdf:type	owl:Class .
-<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/mapov\u00E1n\u00ED>	rdf:type	owl:Ontology ;
-	owl:imports	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/slovn\u00EDk/verze/1.0.0> .
-@prefix ns8:	<http://data.europa.eu/m8g/> .
-<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/mapov\u00E1n\u00ED>	owl:imports	ns8:cccev ,
-		ns8:cpov ,
-		ns8:cpsvap ,
+ns5:typ-vlastnosti	rdf:type	owl:Class .
+ns5:typ-vztahu	rdf:type	owl:Class .
+ns5:vlastnost	rdf:type	owl:Class .
+@prefix ns8:	<http://onto.fel.cvut.cz/ontologies/ufo/> .
+ns8:type	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:typ .
+ns8:entity	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:prvek .
+ns5:druh	rdf:type	owl:Class .
+ns8:object-type	owl:equivalentClass	ns5:typ-objektu .
+ns8:relator-type	owl:equivalentClass	ns5:typ-vztahu .
+<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/mapov\u00E1n\u00ED>	rdf:type	<http://onto.fel.cvut.cz/ontologies/slovn\u00EDk/agendov\u00FD/popis-dat/pojem/mapov\u00E1n\u00ED> ,
+		owl:Ontology ;
+	owl:imports	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/slovn\u00EDk/verze/1.0.0> ,
 		<http://www.w3.org/ns/locn#> .
 @prefix ns9:	<http://www.w3.org/ns/> .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/mapov\u00E1n\u00ED>	owl:imports	ns9:person ,
-		<http://www.w3.org/ns/legal#> ,
-		ns7: ;
+		ns8: ;
 	owl:versionIRI	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/mapov\u00E1n\u00ED/> .
-ns8:Criteron	rdf:type	owl:Class ;
+@prefix ns10:	<http://data.europa.eu/m8g/> .
+ns10:Criteron	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-@prefix ns10:	<http://labs.mondeca.com/vocab/voaf#> .
-ns10:Vocabulary	rdf:type	owl:Class ;
+@prefix ns11:	<http://labs.mondeca.com/vocab/voaf#> .
+ns11:Vocabulary	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/znalostn\u00ED-struktura> .
-@prefix ns11:	<http://purl.org/vocab/cpsv#> .
-ns11:Input	rdf:type	owl:Class ;
+@prefix ns12:	<http://purl.org/vocab/cpsv#> .
+ns12:Input	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-@prefix ns12:	<http://purl.org/vocab/frbr/core#> .
-ns12:Expression	rdf:type	owl:Class ;
+@prefix ns13:	<http://purl.org/vocab/frbr/core#> .
+ns13:Expression	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-@prefix ns13:	<http://purl.org/vocommons/voaf#> .
-ns13:Vocabulary	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/znalostn\u00ED-struktura> .
+@prefix ns14:	<http://purl.org/vocommons/voaf#> .
+ns14:Vocabulary	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/znalostn\u00ED-struktura> .
 @prefix xhv:	<http://www.w3.org/1999/xhtml/vocab#> .
 xhv:next	rdf:type	owl:ObjectProperty .
-@prefix ns15:	<http://www.w3.org/ns/adms#> .
-ns15:Identifier	rdf:type	owl:Class ;
+@prefix ns16:	<http://www.w3.org/ns/adms#> .
+ns16:Identifier	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-@prefix ns16:	<http://www.w3.org/ns/locn#> .
-ns16:Address	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-@prefix ns17:	<http://www.w3.org/ns/org#> .
-ns17:FormalOrganization	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:agent .
-@prefix ns18:	<https://schema.org/> .
-ns18:ContactPoint	rdf:type	owl:Class ;
-	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-@prefix ns19:	<http://schema.org/> .
+@prefix ns17:	<http://www.w3.org/ns/locn#> .
+ns17:Address	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
+@prefix ns18:	<http://www.w3.org/ns/org#> .
+ns18:FormalOrganization	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:agent .
+@prefix ns19:	<https://schema.org/> .
 ns19:ContactPoint	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns19:OpeningHoursSpecification	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:prvek .
-ns19:Person	rdfs:subClassOf	ns4:agent .
-ns19:Place	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/prostorov\u00FD-objekt> .
-ns6:Catalog	rdf:type	owl:Class ;
+@prefix ns20:	<http://schema.org/> .
+ns20:ContactPoint	rdf:type	owl:Class ;
+	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
+ns20:OpeningHoursSpecification	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:prvek .
+ns20:Person	rdfs:subClassOf	ns5:agent .
+ns20:Place	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/prostorov\u00FD-objekt> .
+ns7:Catalog	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/datov\u00E1-sada> .
-ns8:BusinessEvent	rdf:type	owl:Class ;
+ns10:BusinessEvent	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/ud\u00E1lost> .
-ns8:Channel	rdf:type	owl:Class ;
+ns10:Channel	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:Cost	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:prvek .
-ns8:Criterion	rdf:type	owl:Class ;
+ns10:Cost	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:prvek .
+ns10:Criterion	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:CriterionRequirement	rdf:type	owl:Class ;
+ns10:CriterionRequirement	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:DocumentReference	rdf:type	owl:Class ;
+ns10:DocumentReference	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:Event	rdf:type	owl:Class ;
+ns10:Event	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/ud\u00E1lost> .
-ns8:Evidence	rdf:type	owl:Class ;
+ns10:Evidence	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:FoundationEvent	rdf:type	owl:Class ;
+ns10:FoundationEvent	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/ud\u00E1lost> .
-ns8:LifeEvent	rdf:type	owl:Class ;
+ns10:LifeEvent	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/ud\u00E1lost> .
-ns8:Output	rdf:type	owl:Class ;
+ns10:Output	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:Participation	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:prvek .
-ns8:PeriodOfTime	rdf:type	owl:Class ;
+ns10:Participation	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:prvek .
+ns10:PeriodOfTime	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/\u010Dasov\u00FD-prvek> .
-ns8:PublicOrganisation	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:agent .
-ns8:RequirementGroup	rdf:type	owl:Class ;
+ns10:PublicOrganisation	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:agent .
+ns10:RequirementGroup	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns8:RequirementResponse	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:prvek .
-ns11:Output	rdf:type	owl:Class ;
+ns10:RequirementResponse	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:prvek .
+ns12:Output	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns11:PublicService	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:typ-objektu .
-ns16:Geometry	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
-ns17:ChangeEvent	rdf:type	owl:Class ;
+ns12:PublicService	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:typ-objektu .
+ns17:Geometry	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
+ns18:ChangeEvent	rdf:type	owl:Class ;
 	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/zm\u011Bna-prom\u011Bnn\u00E9ho-prvku> .
 dct:Jurisdiction	rdfs:subClassOf	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt> .
 dct:Location	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/prostorov\u00FD-objekt> .
-@prefix foaf:	<http://xmlns.com/foaf/0.1/> .
 foaf:Agent	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:agent .
+	owl:equivalentClass	ns5:agent .
 @prefix sioc:	<http://rdfs.org/sioc/ns#> .
 sioc:Forum	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns4:prvek .
-ns7:action	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:akce .
-ns7:agent	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:agent .
-ns7:category	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:kategorie .
-ns7:endurant	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns5:prvek .
+ns8:action	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:akce .
+ns8:agent	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:agent .
+ns8:category	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:kategorie .
+ns8:endurant	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/prom\u011Bnn\u00FD-prvek> .
-ns7:event	rdf:type	owl:Class ;
+ns8:event	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/ud\u00E1lost> .
-ns7:event-type	rdf:type	owl:Class ;
+ns8:event-type	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-ud\u00E1losti> .
-ns7:intrinsic-trope-type	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:typ-vlastnosti .
-ns7:kind	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:druh .
-ns7:mixin	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:mixin .
-ns7:mode-type	rdf:type	owl:Class ;
+ns8:intrinsic-trope-type	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:typ-vlastnosti .
+ns8:kind	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:druh .
+ns8:mixin	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:mixin .
+ns8:mode-type	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-m\u00F3du> .
-ns7:monadic-type	rdf:type	owl:Class ;
-	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-prom\u011Bnn\u00E9ho-prvku> .
-ns7:object	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:objekt .
-ns7:perdurant	rdf:type	owl:Class ;
+ns8:monadic-type	rdf:type	owl:Class .
+ns8:object	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:objekt .
+ns8:perdurant	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/nem\u011Bnn\u00FD-prvek> .
-ns7:phase	rdf:type	owl:Class ;
+ns8:phase	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/f\u00E1ze> .
-ns7:quality-type	rdf:type	owl:Class ;
+ns8:quality-type	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-kvalitativn\u00ED-vlastnosti> .
-ns7:relator	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:typ-vztahu .
-ns7:role	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:role .
-ns7:role-mixin	rdf:type	owl:Class ;
+ns8:relator	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:vztah .
+ns8:role	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:role .
+ns8:role-mixin	rdf:type	owl:Class ;
 	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/mixin-rol\u00ED> .
-ns7:situation	rdf:type	owl:Class ;
-	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/okam\u017Eit\u00FD-stav-prom\u011Bnn\u00E9ho-prvku> .
-ns7:sub-kind	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:poddruh .
-ns7:substantial-type	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:typ-objektu .
-ns7:trope	rdf:type	owl:Class ;
-	owl:equivalentClass	ns4:vlastnost .
+ns8:situation	rdf:type	owl:Class .
+ns8:sub-kind	rdf:type	owl:Class ;
+	owl:equivalentClass	ns5:poddruh .
+ns8:substantial-type	rdf:type	owl:Class .
+ns8:trope	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/datov\u00E1-sada>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/ve\u0159ejn\u00FD-sektor/pojem/znalostn\u00ED-struktura>	rdf:type	owl:Class .
-ns4:agent	rdf:type	owl:Class .
-ns4:akce	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns7:action .
-<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt>	rdf:type	owl:Class .
+ns5:agent	rdf:type	owl:Class .
+ns5:akce	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns8:action .
+<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/pasivn\u00ED-objekt>	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns8:object .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/prom\u011Bnn\u00FD-prvek>	rdf:type	owl:Class .
-ns4:typ	rdf:type	owl:Class .
+ns5:typ	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-prom\u011Bnn\u00E9ho-prvku>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/ud\u00E1lost>	rdf:type	owl:Class .
-ns4:vztah	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns7:endurant .
+ns5:vztah	rdf:type	owl:Class ;
+	rdfs:subClassOf	ns8:endurant .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/f\u00E1ze>	rdf:type	owl:Class .
-ns4:kategorie	rdf:type	owl:Class .
-ns4:mixin	rdf:type	owl:Class .
+ns5:kategorie	rdf:type	owl:Class .
+ns5:mixin	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/mixin-rol\u00ED>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/nem\u011Bnn\u00FD-prvek>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/okam\u017Eit\u00FD-stav-prom\u011Bnn\u00E9ho-prvku>	rdf:type	owl:Class .
-ns4:poddruh	rdf:type	owl:Class .
+ns5:poddruh	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/prostorov\u00FD-objekt>	rdf:type	owl:Class ;
-	rdfs:subClassOf	ns7:object .
-ns4:prvek	rdf:type	owl:Class .
-ns4:role	rdf:type	owl:Class .
+	rdfs:subClassOf	ns8:object .
+ns5:prvek	rdf:type	owl:Class .
+ns5:role	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-kvalitativn\u00ED-vlastnosti>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-m\u00F3du>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/zm\u011Bna-prom\u011Bnn\u00E9ho-prvku>	rdf:type	owl:Class .
 <https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/\u010Dasov\u00FD-prvek>	rdf:type	owl:Class .
+@prefix ns22:	<http://joinup.eu/solution/> .
+ns22:webdav_creation	rdf:type	owl:AnnotationProperty .
+@prefix ns23:	<http://joinup.eu/is/> .
+ns23:workflow_status	rdf:type	owl:AnnotationProperty .
+@prefix ns24:	<http://joinup.eu/> .
+ns24:language	rdf:type	owl:AnnotationProperty .
+@prefix ns25:	<http://joinup.eu/language/> .
+ns25:default	rdf:type	owl:AnnotationProperty .
+ns25:translation_author	rdf:type	owl:AnnotationProperty .
+ns25:translation_source	rdf:type	owl:AnnotationProperty .
+ns25:translation_status	rdf:type	owl:AnnotationProperty .
+@prefix ns26:	<http://joinup.eu/owner/> .
+ns26:uid	rdf:type	owl:AnnotationProperty .
+ns24:search	rdf:type	owl:AnnotationProperty .
+ns24:site-featured	rdf:type	owl:AnnotationProperty .
+ns24:site-pinned	rdf:type	owl:AnnotationProperty .
+ns22:content_creation	rdf:type	owl:AnnotationProperty .
+ns22:moderation	rdf:type	owl:AnnotationProperty .
+ns22:related_by_type	rdf:type	owl:AnnotationProperty .
+@prefix ns27:	<http://> .
+ns27:policy_domain	rdf:type	owl:AnnotationProperty .
+@prefix ns28:	<http://purl.org/dc/dcmitype/> .
+ns28:StillImage	rdf:type	owl:AnnotationProperty .
+dct:hasVersion	rdf:type	owl:AnnotationProperty .
+ns8:endurant-type	owl:equivalentClass	<https://slovn\u00EDk.gov.cz/z\u00E1kladn\u00ED/pojem/typ-prom\u011Bnn\u00E9ho-prvku> .
+ns8:intrinsic-trope	owl:equivalentClass	ns5:vlastnost .
+<http://data.europa.eu/w21/49169dd2-da9d-4c81-94b5-bba4604ded0a>	rdf:type	owl:NamedIndividual ,
+		ns7:Dataset .
+@prefix xsd:	<http://www.w3.org/2001/XMLSchema#> .
+<http://data.europa.eu/w21/49169dd2-da9d-4c81-94b5-bba4604ded0a>	dct:modified	"2020-01-09T16:35:02Z"^^xsd:dateTime ;
+	dct:title	"e-Government Core Vocabularies "@en ;
+	dct:description	"<p>The e-Government Core Vocabularies are simplified, re-usable and extensible data models that capture the fundamental characteristics of a data entity in a context-neutral fashion.</p>\n\n<p>&nbsp;</p>\n\n<table>\n\t<tbody>\n\t\t<tr>\n\t\t\t<td><a data-entity-type=\"rdf_entity\" data-entity-uuid=\"http://data.europa.eu/w21/322eb58a-08d9-4721-b179-7b62b097304d\" href=\"/solution/core-person-vocabulary\"><img alt=\"\" data-entity-type=\"file\" data-entity-uuid=\"32bc4040-736e-4b02-b3f1-8df7fc5066d7\" src=\"/sites/default/files/inline-images/PERSON.png\" /></a></td>\n\t\t\t<td><a data-entity-type=\"rdf_entity\" data-entity-uuid=\"http://data.europa.eu/w21/8d58d3f4-5013-4aa3-8c39-4f0059460da7\" href=\"/solution/registered-organization-vocabulary\"><img alt=\"\" data-entity-type=\"file\" data-entity-uuid=\"f66fc299-082f-44b5-a2f5-0ee119d4f5a9\" src=\"/sites/default/files/inline-images/BUSINESS.png\" /></a></td>\n\t\t\t<td><a data-entity-type=\"rdf_entity\" data-entity-uuid=\"http://data.europa.eu/w21/34f5f51c-3dfb-494d-a75d-ecbdefb9a37e\" href=\"/solution/core-location-vocabulary\"><img alt=\"\" data-entity-type=\"file\" data-entity-uuid=\"ed53cd9f-fd88-4667-bdf5-44609e1f71e6\" src=\"/sites/default/files/inline-images/LOCATION.png\" /></a></td>\n\t\t\t<td><a data-entity-type=\"rdf_entity\" data-entity-uuid=\"http://data.europa.eu/w21/f55bb8ef-bf11-4357-b9df-5ec1af842a1f\" href=\"/solution/core-criterion-and-core-evidence-vocabulary\"><img alt=\"\" data-entity-type=\"file\" data-entity-uuid=\"057d0a0e-ba67-43a6-9251-bf107f301d37\" src=\"/sites/default/files/inline-images/CRITERION.png\" /></a></td>\n\t\t\t<td><a data-entity-type=\"rdf_entity\" data-entity-uuid=\"http://data.europa.eu/w21/26fe5e8d-9b68-45a3-93c7-93b6bb72c53a\" href=\"/solution/core-public-service\"><img alt=\"\" data-entity-type=\"file\" data-entity-uuid=\"2216330b-15a3-436e-98f5-af04a70e79a4\" src=\"/sites/default/files/inline-images/PUBLIC SERVICE.png\" /></a></td>\n\t\t\t<td><a data-entity-type=\"rdf_entity\" data-entity-uuid=\"http://data.europa.eu/w21/73920f8b-6c65-4c82-be8c-23a6d2cc4d58\" href=\"/solution/core-public-organisation-vocabulary\"><img alt=\"\" data-entity-type=\"file\" data-entity-uuid=\"8b77e774-ee9b-40e7-9085-192a0e4f09d7\" src=\"/sites/default/files/inline-images/PUBLIC ORGANISATION.png\" /></a></td>\n\t\t\t<td>\n\t\t\t<p><a href=\"https://joinup.ec.europa.eu/solution/e-government-core-vocabularies/core-public-service-vocabulary-application-profile\"><img alt=\"CPSV-AP\" data-entity-type=\"file\" data-entity-uuid=\"fdeea1ff-4cf5-4811-8c5c-210e1525cf67\" src=\"/sites/default/files/inline-images/2019-10-01_15-01-17.jpg\" /></a></p>\n\t\t\t</td>\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>The Core Person Vocabulary captures the <strong>fundamental characteristics of a person</strong>, e.g. the name, the gender, the date of birth, etc.<br />\n\t\t\t&nbsp;</td>\n\t\t\t<td>The Core Business Vocabulary captures the <strong>fundamental characteristics of a legal entity</strong>, e.g. the legal name, the activity, address, legal identifier, company type, and its activities.</td>\n\t\t\t<td>The Core Location Vocabulary captures the <strong>fundamental characteristics of a location</strong>, represented as an address, a geographic name, or geometry. This vocabulary is aligned with the<a href=\"https://inspire.ec.europa.eu/data-specifications/2892\"> INSPIRE</a> data specifications.</td>\n\t\t\t<td>The Core Evidence and Criterion Vocabulary describes the <strong>principles and the means that a private entity must fulfil in order to become eligible or to be qualified to perform public services</strong>. A Criterion is a rule or principle that is used to judge, evaluate or test something.&nbsp;An Evidence is the means by which a Criterion may be proven.</td>\n\t\t\t<td>The Core Public Service Vocabulary captures the <strong>fundamental characteristics of a service offered by public administration</strong>. Such characteristics include the title, description, inputs, outputs, providers, locations, etc. of the public service.</td>\n\t\t\t<td>The Core Public Organisation Vocabulary <strong>describes public organisations with links to descriptions of public services, members of staff or other resources such as relevant legislation, policies and jurisdictional coverage</strong> in the European Union.</td>\n\t\t\t<td>The Core Public Service Vocabulary Application Profile&nbsp;<strong>captures fundamental characteristics of a public service</strong>, such as the name, description, competent public organisation, output, etc.</td>\n\t\t</tr>\n\t</tbody>\n</table>\n\n<h3>&nbsp;</h3>\n\n<h3><strong>1. What are the benefits of using the e-Government Core Vocabularies? </strong></h3>\n\n<p>One of the main benefits of the e-Government Core Vocabularies is that they provide a concrete starting point for promoting semantic interoperability among European public administrations.Public administrations can use and extend them in the following contexts:</p>\n\n<ul>\n\t<li><strong>Information exchange</strong> between systems: the e-Government Core Vocabularies can become the basis of a context-specific data model used to exchange data among existing information systems.</li>\n\t<li><strong>Data integration</strong>: the e-Government Core Vocabularies can integrate data that comes from disparate data sources.</li>\n\t<li><strong>Data publishing</strong>: the e-Government Core Vocabularies can be the foundation of a common export format for data in base registries like cadastres, business registers and service portals.</li>\n\t<li><strong>Development of new systems</strong>: the e-Government Core Vocabularies can be the default starting point for designing the conceptual and logical data models in newly developed information systems.</li>\n</ul>\n\n<h3><strong>2. Who developed the solution?</strong></h3>\n\n<p>ISA\u00B2 has developed the e-Government Core Vocabularies for public administrations in an open process with the active involvement of the SEMIC action stakeholders including:</p>\n\n<ul>\n\t<li>The&nbsp;e-Government Core Vocabularies Working Group;</li>\n\t<li>the Directorate-General for Informatics:&nbsp;<a href=\"http://ec.europa.eu/dgs/informatics/index_en.htm\">DG DIGIT</a> - in particular the SEMIC action of the ISA\u00B2 programme; and</li>\n\t<li>the&nbsp;<a href=\"http://publications.europa.eu/index_en.htm\">Publications Office of the EU</a>.</li>\n</ul>\n\n<h3><strong>3. How are the e-Government Core Vocabularies maintained?</strong></h3>\n\n<p>The e-Government Core Vocabularies are maintained based on the <a href=\"https://joinup.ec.europa.eu/document/process-and-methodology-developing-core-vocabularies\">Process and Methodology for Developing Core Vocabularies</a>.</p>\n\n<p>All changes in the specification are discussed with the e-Government Core Vocabularies Working Group to make sure that changes do not negatively impact the operation of implementations and the interoperability across the network and are publicly communicated.</p>\n\n<h3><strong>4. e-Government Core Vocabularies key milestones</strong></h3>\n\n<ul>\n\t<li>From <strong>February 2016 until December 2016</strong> the Core Criterion and Core Evidence Vocabulary was developed by the Working Group</li>\n\t<li>From <strong>December 2012 until March 2013</strong> the Core Public Service vocabulary was created by a multi-disciplinary Working Group.</li>\n\t<li>On <strong>23 May 2012</strong> the Coordination Group of the Interoperability Solutions for European Public Administrations (ISA) Programme has endorsed the Core Business, Core Location and Core Person Vocabulary.</li>\n\t<li>On <strong>17 February 2012</strong> a final draft of the e-Government Core Vocabularies entered a month-long public review period.</li>\n\t<li>From <strong>November 2011 until May 2012</strong> the Core Business, Core Person, and Core Location Vocabularies were created by a multi-disciplinary Working Group with 69 experts from 22 countries, 18 EU and 4 non-EU countries, following an open and inclusive process of consensus building.</li>\n</ul>\n\n<h3><strong>5. e-Government Core Vocabularies at one glance</strong></h3>\n\n<p><a href=\"https://ec.europa.eu/isa2/sites/isa/files/docs/publications/2017_core_vocabularies_leaflet_lr_v11.pdf\">Core Vocabularies leaflet</a></p>\n\n<p><a href=\"https://ec.europa.eu/isa2/sites/isa/files/corevocabularies-poster.pdf\">Core Vocabularies poster</a></p>\n\n<h3><strong>6. Get started</strong></h3>\n\n<p>Download the <a href=\"https://joinup.ec.europa.eu/solution/e-government-core-vocabularies/releases\">Core Vocabularies latest and previous releases.</a></p>\n\n<p>Discover the <a href=\"https://joinup.ec.europa.eu/site/core_vocabularies/Core_Vocabularies_user_handbook/ISA%20Hanbook%20for%20using%20Core%20Vocabularies.pdf\">Handbook on Core Vocabularies</a>.</p>\n\n<p>Get acquainted with the <a href=\"https://joinup.ec.europa.eu/document/process-and-methodology-developing-core-vocabularies\">Process and Methodology for Developing Core Vocabularies</a>.</p>\n\n<h3><strong>7. Get involved!</strong></h3>\n\n<p>Do you want to participate in the work of our Core Vocabularies Working Group? Share your comments and change requests via:&nbsp;</p>\n\n<ul>\n\t<li><a href=\"https://github.com/SEMICeu/Core-Person-Vocabulary\">GitHub Core Person Vocabulary repository</a></li>\n\t<li><a href=\"https://github.com/SEMICeu/Core-Business-Vocabulary\">GitHub Core Business Vocabulary repository</a></li>\n\t<li><a href=\"https://github.com/SEMICeu/Core-Location-Vocabulary\">GitHub Core Location Vocabulary repository</a></li>\n\t<li><a href=\"https://github.com/SEMICeu/CPOV\">GitHub Core Public Organisation Vocabulary repository</a></li>\n\t<li><a href=\"https://github.com/SEMICeu/CCCEV\">GitHub Core Criterion and Core Evidence Vocabulary repository</a></li>\n</ul>\n\n<h3><strong>8. e-Government Core Vocabularies users</strong></h3>\n\n<p>Core Vocabularies have been successfully implemented by:</p>\n\n<ul>\n\t<li>The European Commission - <a href=\"http://ec.europa.eu/dgs/informatics/index_en.htm\">DG DIGIT</a> and <a href=\"http://ec.europa.eu/justice/index_en.htm\">DJ JUST</a> - uses Core Business Vocabulary in the EU <a href=\"https://joinup.ec.europa.eu/sites/default/files/eu_core_vocabularies_in_action_using_core_business_vocabulary_in_the_eu_.pdf\">Business Registers Interconnection System (BRIS)</a> (last update in May 2015).</li>\n\t<li>The Estonian <a href=\"https://www.inforegister.ee/\">Inforegister.ee</a> in its <a href=\"https://www.w3.org/TR/vocab-regorg/\">Register App Engine Graph</a> project.</li>\n\t<li>The <a href=\"https://www.mkm.ee/en\">Estonian Ministry of Economic Affairs and Communication</a>, in <a href=\"https://www.mkm.ee/sites/default/files/study_-_integrated_portfolio_management_of_public_services_-_brief_summary.pdf\">the integrated portfolio management of public services</a> (last update in March 2014).</li>\n\t<li>The Spanish <a href=\"http://www.eugo.es/\">Point of Single Contact for business</a>.</li>\n\t<li>The <a href=\"http://www.agid.gov.it/\">Italian Digital Agency (AGID)</a> with <a href=\"http://spcdata.digitpa.gov.it/dataLotto1.html\">SPCData</a>.</li>\n\t<li>The <a href=\"http://www.agid.gov.it/\">Italian Digital Agency (AGID)</a> with <a href=\"http://www.dati.gov.it/consultazione/CPSV-AP_IT\">CPSV-AP_IT</a>.</li>\n</ul>\n\n<h3><strong>9. Any questions?&nbsp;</strong></h3>\n\n<p>Contact the&nbsp;<a href=\"mailto:contact@semic.eu\">SEMIC team</a>.</p>\n\n<h3><strong>10. About SEMIC</strong></h3>\n\n<p>Visit the SEMIC collection on&nbsp;<a href=\"https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/about\" target=\"_blank\">Joinup</a>&nbsp;or check out our&nbsp;<a href=\"https://ec.europa.eu/isa2/actions/improving-semantic-interoperability-european-egovernment-systems_en\">SEMIC page</a>&nbsp;on the ISA\u00B2&nbsp;website.</p>\n"@en ;
+	foaf:Image	"504215" .
+@prefix ns30:	<http://data.europa.eu/dr8/> .
+<http://data.europa.eu/w21/49169dd2-da9d-4c81-94b5-bba4604ded0a>	dct:type	ns30:SemanticInteroperabilitySpecification .
+@prefix ns31:	<http://data.europa.eu/w21/> .
+<http://data.europa.eu/w21/49169dd2-da9d-4c81-94b5-bba4604ded0a>	dct:publisher	ns31:b1ffa7dc-07b7-4f85-9c3c-8850087b506c ;
+	dct:issued	"2014-09-03T08:25:50Z"^^xsd:dateTime ;
+	ns7:contactPoint	ns31:fc7ac8d0-b843-49fe-bcd1-7beb1825ce68 ;
+	ns7:keyword	"EC" ,
+		"core vocabularies" ,
+		"European Commission" ;
+	ns22:webdav_creation	"true"^^xsd:boolean ;
+	ns23:workflow_status	"validated" ;
+	ns24:language	"en"@en ;
+	ns25:default	"1" ;
+	ns25:translation_author	"0"@en ;
+	ns25:translation_source	"und"@en ;
+	ns25:translation_status	"1"@en ;
+	ns26:uid	743679 ;
+	ns24:search	"a:4:{s:6:\"fields\";a:3:{s:23:\"solution_content_bundle\";a:2:{s:6:\"weight\";i:0;s:6:\"region\";s:3:\"top\";}s:22:\"solution_policy_domain\";a:2:{s:6:\"weight\";i:1;s:6:\"region\";s:13:\"inline_facets\";}s:25:\"solution_spatial_coverage\";a:2:{s:6:\"weight\";i:2;s:6:\"region\";s:13:\"inline_facets\";}}s:7:\"enabled\";i:1;s:13:\"query_presets\";s:0:\"\";s:5:\"limit\";i:12;}" ;
+	ns24:site-featured	"false"^^xsd:boolean ;
+	ns24:site-pinned	"false"^^xsd:boolean ;
+	ns22:content_creation	"only_facilitators" ;
+	ns22:moderation	"false"^^xsd:boolean ;
+	ns22:related_by_type	"true"^^xsd:boolean .
+@prefix ns32:	<http://joinup.eu/ontology/policy-domain#> .
+<http://data.europa.eu/w21/49169dd2-da9d-4c81-94b5-bba4604ded0a>	ns27:policy_domain	ns32:ict-standardisation ;
+	ns28:StillImage	"17505" ;
+	dct:hasVersion	ns31:e013e885-9a0f-41eb-bc75-a075c791c1a9 ,
+		<http://data.europa.eu/w21/50db2241-751d-432c-a4ec-d2144f593224> ,
+		<http://data.europa.eu/w21/68bcbb91-8df7-4aa0-9ec3-1b29f4f12a6c> ,
+		<http://data.europa.eu/w21/10754c4a-e6c2-4d42-8504-377d38246459> .
+@prefix ns33:	<http://purl.org/adms/status/> .
+<http://data.europa.eu/w21/49169dd2-da9d-4c81-94b5-bba4604ded0a>	ns16:status	ns33:UnderDevelopment .
+ns16:status	rdf:type	owl:AnnotationProperty .
