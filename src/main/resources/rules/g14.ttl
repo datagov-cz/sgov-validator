@@ -1,0 +1,14 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix dc:            <http://purl.org/dc/terms/> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:g13
+    a              sh:NodeShape ;
+    sh:severity    sh:Info ;
+    sh:message     "Každý pojem má mít rodiče."@cs,
+                   "Each term should have a parent."@en ;
+    sh:targetClass skos:Concept ;
+    sh:path skos:broader ;
+    sh:minCount   1
+.

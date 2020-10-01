@@ -21,6 +21,10 @@ g9.ttl ,rule-test-cases/two-concepts-with-the-same-label.ttl        ,Violation
 g10.ttl,rule-test-cases/concept-synonym-equals-preflabel-of-another-one.ttl        ,Info
 g11.ttl,rule-test-cases/concept-with-same-alt-label-and-pref-label.ttl      	        ,Violation
 g11.ttl,rule-test-cases/concept-with-same-hidden-label-and-pref-label.ttl      	        ,Violation
+g13.ttl,rule-test-cases/concept-without-source.ttl      	        ,Warning
+g13.ttl,rule-test-cases/concept-with-source.ttl      	            ,Pass
+g14.ttl,rule-test-cases/concept-without-broader.ttl      	        ,Info
+g14.ttl,rule-test-cases/concept-with-broader.ttl      	            ,Pass
 m1.ttl ,rule-test-cases/concept-with-event-type.ttl                 ,Pass
 m1.ttl ,rule-test-cases/concept-with-intrinsic-trope-type.ttl       ,Pass
 m1.ttl ,rule-test-cases/concept-with-object-type.ttl                ,Pass

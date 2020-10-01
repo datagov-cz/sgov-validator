@@ -29,7 +29,7 @@ public class Validator {
      * Validator constructor.
      */
     public Validator() {
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 1; i <= 14; i++) {
             glossaryRules.add(resource("g" + i));
         }
         for (int i = 1; i <= 7; i++) {
@@ -39,7 +39,7 @@ public class Validator {
             vocabularyRules.add(resource("s" + i));
         }
 
-        // inferrence rules
+        // inference rules
         shapesModel = ModelFactory.createDefaultModel();
         shapesModel.read(
             com.github.sgov.server.Validator.class.getResourceAsStream("/inference-rules.ttl"),
