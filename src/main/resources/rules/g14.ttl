@@ -3,7 +3,7 @@
 @prefix dc:            <http://purl.org/dc/terms/> .
 @prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
 
-j-sgov-obecný:g13
+j-sgov-obecný:g14
     a              sh:NodeShape ;
     sh:severity    sh:Info ;
     sh:message     "Každý pojem má mít rodiče."@cs,
