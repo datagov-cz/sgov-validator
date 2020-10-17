@@ -5,8 +5,8 @@
 j-sgov-obecný:g6a
     a              sh:NodeShape ;
     sh:severity    sh:Info ;
-    sh:message     "Definice je delší než 1000 znaků."@cs,
-                   "The definition is longer than 1000 characters."@en ;
+    sh:message     "Definice pojmu je delší než 1000 znaků."@cs,
+                   "The term definition is longer than 1000 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:definition ;
     sh:maxLength   1000

@@ -8,8 +8,8 @@
 j-sgov-obecný:g12
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
-    sh:message     "Dva pojmy nesmí být propojeny v hierarchii a současně propojeny mimo ni."@cs,
-                   "Two terms cannot be linked in a hierarchy as well as out of it."@en ;
+    sh:message     "Pojem je podřazeným/nadřazeným projmem jiného, ale je s ním spojen i jinou relací."@cs,
+                   "The term is a subterm/superterm of another one, but is linked to it through another relation as well."@en ;
     sh:targetClass skos:Concept ;
     sh:property     [
         sh:path skos:related ;

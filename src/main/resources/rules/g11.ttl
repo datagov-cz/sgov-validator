@@ -8,8 +8,8 @@
 j-sgov-obecný:g11a
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
-    sh:message     "Synonymum nesmí být stejné jako název."@cs,
-                   "The synonym cannot be the same as the preferred label."@en ;
+    sh:message     "Synonymum se shoduje s názvem."@cs,
+                   "The synonym is the same as the preferred label."@en ;
     sh:targetClass skos:Concept ;
     sh:property     [
         sh:path skos:prefLabel ;
@@ -20,8 +20,8 @@ j-sgov-obecný:g11a
 j-sgov-obecný:g11b
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
-    sh:message     "Vyhledávací text nesmí být stejný jako název."@cs,
-                   "The search string cannot be the same as the preferred label."@en ;
+    sh:message     "Vyhledávací text je stejný jako název."@cs,
+                   "The search string is the same as the preferred label."@en ;
     sh:targetClass skos:Concept ;
     sh:property     [
         sh:path skos:prefLabel ;

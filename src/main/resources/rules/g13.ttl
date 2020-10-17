@@ -6,8 +6,8 @@
 j-sgov-obecný:g13
     a              sh:NodeShape ;
     sh:severity    sh:Warning ;
-    sh:message     "Každý pojem má mít zdroj."@cs,
-                   "Each term should have a source."@en ;
+    sh:message     "Pojem nemá zdroj."@cs,
+                   "The term does not have a source."@en ;
     sh:targetClass skos:Concept ;
     sh:path dc:source ;
     sh:minCount   1

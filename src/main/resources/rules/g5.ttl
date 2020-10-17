@@ -5,8 +5,8 @@
 j-sgov-obecný:g5a
     a              sh:NodeShape ;
     sh:severity    sh:Info ;
-    sh:message     "Název je delší než 150 znaků."@cs,
-                   "The preferred label is longer than 150 characters."@en ;
+    sh:message     "Název pojmu je delší než 150 znaků."@cs,
+                   "The term preferred label is longer than 150 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:prefLabel ;
     sh:maxLength   150
