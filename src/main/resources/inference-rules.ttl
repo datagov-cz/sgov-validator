@@ -16,7 +16,7 @@
 
 j-sgov-obecný:odvoď-podtřídy-z-ekvivalence
     a              sh:NodeShape ;
-    sh:targetClass rdfs:Class ;
+    sh:targetClass rdfs:Resource ;
     sh:rule        [ a            sh:SPARQLRule ;
                      sh:order     1 ;
                      sh:construct """
