@@ -10,5 +10,6 @@ j-sgov-obecný:g13
                    "The term does not have a source."@en ;
     sh:targetClass skos:Concept ;
     sh:path dc:source ;
-    sh:minCount   1
+    sh:minCount   1 ;
+    sh:minLength  1
 .
