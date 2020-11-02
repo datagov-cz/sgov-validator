@@ -28,6 +28,7 @@ g14.ttl,rule-test-cases/concept-with-broader.ttl      	            ,Pass
 m1.ttl ,rule-test-cases/concept-with-event-type.ttl                 ,Pass
 m1.ttl ,rule-test-cases/concept-with-intrinsic-trope-type.ttl       ,Pass
 m1.ttl ,rule-test-cases/concept-with-object-type.ttl                ,Pass
+m1.ttl ,rule-test-cases/concept-with-ufo-object-type.ttl            ,Pass
 m1.ttl ,rule-test-cases/concept-with-relator-type.ttl               ,Pass
 m1.ttl ,rule-test-cases/concept-empty.ttl                           ,Violation,
 m1.ttl ,rule-test-cases/concept-specializing-event.ttl              ,Pass

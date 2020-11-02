@@ -14,6 +14,20 @@
 <>
     sh:entailment sh:Rules .
 
+j-sgov-obecný:odvoď-podtřídy-z-ekvivalence
+    a              sh:NodeShape ;
+    sh:targetClass rdfs:Class ;
+    sh:rule        [ a            sh:SPARQLRule ;
+                     sh:order     1 ;
+                     sh:construct """
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			CONSTRUCT {
+				$this rdfs:subClassOf ?typ .
+				?typ rdfs:subClassOf $this .
+			} WHERE {
+				$this owl:equivalentClass ?typ .
+			}""" ; ] .
 
 j-sgov-obecný:odvoď-podtřídu-objektu-z-typu-objektu
     a              sh:NodeShape ;

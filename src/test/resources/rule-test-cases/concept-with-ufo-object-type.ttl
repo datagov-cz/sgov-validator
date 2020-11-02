@@ -5,4 +5,4 @@
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 
 :muž
-    a skos:Concept, z-sgov-pojem:typ-objektu, z-sgov-pojem:druh .
+    a skos:Concept, <http://onto.fel.cvut.cz/ontologies/ufo/object-type>, z-sgov-pojem:druh .

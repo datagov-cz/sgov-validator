@@ -8,6 +8,8 @@ import java.util.Set;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
+import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.progress.SimpleProgressMonitor;
 import org.topbraid.jenax.util.JenaUtil;
@@ -24,6 +26,7 @@ public class Validator {
     private final Set<URL> vocabularyRules = new HashSet<>();
 
     private final Model shapesModel;
+    private final Model mappingModel;
 
     /**
      * Validator constructor.
@@ -47,10 +50,11 @@ public class Validator {
             FileUtils.langTurtle);
 
         // mapping Z-SGoV to UFO
-        // shapesModel.read(
-        // com.github.sgov.server.Validator.class.getResourceAsStream("/z-sgov-mapping.ttl"),
-        // null,
-        // FileUtils.langTurtle);
+        mappingModel = ModelFactory.createDefaultModel();
+        mappingModel.read(
+            com.github.sgov.server.Validator.class.getResourceAsStream("/z-sgov-mapping.ttl"),
+            null,
+            FileUtils.langTurtle);
     }
 
     private URL resource(final String name) {
@@ -90,6 +94,8 @@ public class Validator {
         throws IOException {
         final Model shapesModel = getRulesModel(ruleSet);
         shapesModel.add(this.shapesModel);
+
+        dataModel.add(mappingModel);
 
         final Model inferredModel = RuleUtil
             .executeRules(dataModel, shapesModel, null,
