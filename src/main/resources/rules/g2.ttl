@@ -10,5 +10,6 @@ j-sgov-obecný:g2
     sh:targetClass         skos:Concept ;
     sh:path                skos:prefLabel ;
     sh:qualifiedValueShape [ sh:languageIn ( "cs" ) ] ;
-    sh:qualifiedMinCount   1
+    sh:qualifiedMinCount   1 ;
+    sh:minLength           1
 .
