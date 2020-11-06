@@ -8,8 +8,6 @@ import java.util.Set;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.progress.SimpleProgressMonitor;
 import org.topbraid.jenax.util.JenaUtil;
