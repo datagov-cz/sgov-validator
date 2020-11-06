@@ -11,9 +11,22 @@ j-sgov-obecný:g10
     sh:sparql      [ a         sh:SPARQLConstraint ;
                      sh:select """
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-			SELECT $this (?glossary AS ?value)
-			{
-				$this skos:inScheme ?glossary .
-				FILTER(!strstarts(str($this),"https://slovník.gov.cz"))
-			}""" ; ]
+            PREFIX a-popis-dat: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/>
+            select $this (?vocabulary AS ?value) where {
+            	$this skos:inScheme ?g .
+            	$this skos:prefLabel ?prefLabel .
+                ?vocabulary a-popis-dat:má-glosář ?g .
+                ?vocabulary <http://purl.org/vocab/vann/preferredNamespaceUri> ?ns .
+                BIND(str($this) AS ?conceptString)
+                FILTER(strstarts(?conceptString,?ns))
+
+                FILTER(lang(?prefLabel) = "cs")
+                BIND(str(?prefLabel) AS ?prefLabelNormative)
+
+                BIND(lcase(replace(?prefLabelNormative," ","-")) AS ?l2)
+                BIND(concat(?ns,?l2) as ?conceptNormative)
+
+                FILTER($this != iri(?conceptNormative))
+            }
+            """ ; ]
 .
