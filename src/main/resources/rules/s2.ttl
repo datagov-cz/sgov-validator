@@ -2,7 +2,7 @@
 @prefix sh:            <http://www.w3.org/ns/shacl#> .
 @prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
 
-j-sgov-obecný:g10
+j-sgov-obecný:s2
     a              sh:NodeShape ;
     sh:severity    sh:Violation ;
     sh:message     "IRI pojmu není v souladu s názvem pojmu."@cs,
