@@ -48,6 +48,7 @@ m2.ttl ,rule-test-cases/event-type-with-phasemixin.ttl              ,Violation
 m2.ttl ,rule-test-cases/event-type-with-object-type.ttl             ,Violation
 m2.ttl ,rule-test-cases/object-type-with-relator-type.ttl           ,Violation
 m2.ttl ,rule-test-cases/event-type-without-another-type.ttl         ,Pass
+m2.ttl ,rule-test-cases/object-type-with-kind.ttl                   ,Pass
 m2.ttl ,rule-test-cases/subclassof-event-with-category.ttl          ,Violation
 m2.ttl ,rule-test-cases/subclassof-event-with-kind.ttl              ,Violation
 m2.ttl ,rule-test-cases/subclassof-event-with-mixin.ttl             ,Violation

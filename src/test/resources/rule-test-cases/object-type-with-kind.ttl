@@ -1,0 +1,6 @@
+@prefix :             <https://slovník.gov.cz/příklad/pojem/> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+
+:člověk
+    a z-sgov-pojem:typ-objektu, z-sgov-pojem:druh, skos:Concept .
