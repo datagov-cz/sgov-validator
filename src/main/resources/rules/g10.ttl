@@ -8,6 +8,7 @@ j-sgov-obecný:g10
     sh:message     "Synonymum se shoduje s názvem jiného pojmu."@cs,
                    "Synonym is the same as the preferred label of another term."@en ;
     sh:targetClass skos:Concept ;
+    sh:path        skos:altLabel ;
     sh:sparql      [ a         sh:SPARQLConstraint ;
                      sh:select """
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
