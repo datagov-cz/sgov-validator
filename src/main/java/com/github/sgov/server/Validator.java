@@ -5,12 +5,16 @@ import java.net.URL;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Logger;
+import org.apache.jena.atlas.logging.LogCtl;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
+import org.topbraid.jenax.progress.NullProgressMonitor;
 import org.topbraid.jenax.progress.SimpleProgressMonitor;
 import org.topbraid.jenax.util.JenaUtil;
+import org.topbraid.shacl.rules.RuleEngine;
 import org.topbraid.shacl.rules.RuleUtil;
 import org.topbraid.shacl.validation.ResourceValidationReport;
 import org.topbraid.shacl.validation.ValidationReport;
@@ -97,7 +101,7 @@ public class Validator {
 
         final Model inferredModel = RuleUtil
             .executeRules(dataModel, shapesModel, null,
-                new SimpleProgressMonitor("inference"));
+                new NullProgressMonitor());
         dataModel.add(inferredModel);
 
         final Resource report = ValidationUtil.validateModel(dataModel, shapesModel, true);
