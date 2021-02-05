@@ -22,10 +22,11 @@ j-sgov-obecný:s2
 
                 FILTER(lang(?prefLabel) = "cs")
                 BIND(str(?prefLabel) AS ?prefLabelNormative)
-                BIND(lcase(replace(replace(?prefLabelNormative," ","-"),"/","-")) AS ?l2)
+                BIND(lcase(replace(replace(replace(?prefLabelNormative," ","-"),"/","-"),",","")) AS ?l2)
                 BIND(concat(?ns,?l2) as ?conceptNormative)
+                BIND(replace(str($this),",","") AS ?iri2)
 
-                FILTER($this != iri(?conceptNormative))
+                FILTER(iri(?iri2) != iri(?conceptNormative))
             }
             """ ; ]
 .
