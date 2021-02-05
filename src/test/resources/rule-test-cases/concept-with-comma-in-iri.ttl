@@ -1,0 +1,11 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix a-popis-dat-pojem: <http://onto.fel.cvut.cz/ontologies/slovník/agendový/popis-dat/pojem/>
+
+<https://slovník.gov.cz/příklad/pojem/au,to>
+    skos:inScheme <https://slovník.gov.cz/příklad/glosář> ;
+    skos:prefLabel "au,to"@cs ;
+    a             skos:Concept .
+
+<https://slovník.gov.cz/příklad>
+    a-popis-dat-pojem:má-glosář <https://slovník.gov.cz/příklad/glosář> ;
+    <http://purl.org/vocab/vann/preferredNamespaceUri> "https://slovník.gov.cz/příklad/pojem/" .
