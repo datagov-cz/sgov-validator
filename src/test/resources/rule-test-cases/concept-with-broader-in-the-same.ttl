@@ -3,7 +3,14 @@
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/> .
 
 :volby-do-poslanecké-sněmovny-parlamentu-české-republiky
     a               skos:Concept ;
-    skos:broader    :volby .
+    skos:broader    :volby ;
+    skos:inScheme   :a .
+
+:volby
+    a               skos:Concept ;
+    skos:broadMatch    z-sgov-pojem:typ-objektu ;
+    skos:inScheme   :a .

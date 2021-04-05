@@ -26,7 +26,8 @@ g13.ttl,rule-test-cases/concept-without-source.ttl      	        ,Warning
 g13.ttl,rule-test-cases/concept-with-empty-source.ttl      	        ,Warning
 g13.ttl,rule-test-cases/concept-with-source.ttl      	            ,Pass
 g14.ttl,rule-test-cases/concept-without-broader.ttl      	        ,Info
-g14.ttl,rule-test-cases/concept-with-broader.ttl      	            ,Pass
+g14.ttl,rule-test-cases/concept-with-broader-in-the-same.ttl        ,Pass
+g14.ttl,rule-test-cases/concept-with-broadMatch-in-another.ttl      ,Pass
 g14.ttl,rule-test-cases/concept-with-object-type.ttl   	            ,Pass
 m1.ttl ,rule-test-cases/concept-with-event-type.ttl                 ,Pass
 m1.ttl ,rule-test-cases/concept-with-intrinsic-trope-type.ttl       ,Pass
