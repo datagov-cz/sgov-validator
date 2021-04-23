@@ -2,7 +2,7 @@
 @prefix sh:            <http://www.w3.org/ns/shacl#> .
 @prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
 
-j-sgov-obecný:s2
+j-sgov-obecný:s3
     a              sh:NodeShape ;
     sh:severity    sh:Warning ;
     sh:message     "Nedeklarovaný pojem je použit ve slovníku."@cs,

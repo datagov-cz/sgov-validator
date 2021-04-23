@@ -40,7 +40,7 @@ public class Validator {
         for (int i = 1; i <= 7; i++) {
             modelRules.add(resource("m" + i));
         }
-        for (int i = 1; i <= 2; i++) {
+        for (int i = 1; i <= 3; i++) {
             vocabularyRules.add(resource("s" + i));
         }
 
