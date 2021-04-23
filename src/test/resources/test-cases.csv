@@ -84,3 +84,4 @@ m7.ttl ,rule-test-cases/category-specializing-kind.ttl              ,Violation
 s2.ttl,rule-test-cases/concept-with-invalid-iri.ttl      			,Violation
 s2.ttl,rule-test-cases/concept-with-valid-iri.ttl					,Pass
 s2.ttl,rule-test-cases/concept-with-comma-in-iri.ttl				,Pass
+s3.ttl,rule-test-cases/concept-without-declaration-used.ttl				,Warning

@@ -1,0 +1,30 @@
+@prefix skos:          <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh:            <http://www.w3.org/ns/shacl#> .
+@prefix j-sgov-obecný: <https://slovník.gov.cz/jazyk/obecný/> .
+
+j-sgov-obecný:s2
+    a              sh:NodeShape ;
+    sh:severity    sh:Warning ;
+    sh:message     "Nedeklarovaný pojem je použit ve slovníku."@cs,
+                   "Non-declared concept is used in a vocabulary."@en ;
+    sh:targetClass skos:Concept ;
+    sh:sparql      [ a         sh:SPARQLConstraint ;
+                     sh:select """
+                     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+                     PREFIX z-sgov-pojem: <https://slovník.gov.cz/základní/pojem/>
+                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                     select $this (?g AS ?value) where {
+                         GRAPH ?g {
+                             {
+                     			?s ?p ?o .
+                             } UNION {
+                     			?o ?p ?s .
+                             }
+                             FILTER(regex(str(?s),"https://slovník.gov.cz/.*/pojem/.*"))
+                             FILTER(!strstarts(str(?s),"https://slovník.gov.cz/základní"))
+                             FILTER NOT EXISTS {
+                             	?s skos:inScheme ?g2
+                             }
+                         }
+                     } GROUP BY ?g $this""" ; ]
+.
