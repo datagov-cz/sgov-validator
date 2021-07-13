@@ -15,7 +15,7 @@ j-sgov-obecný:g6a
 j-sgov-obecný:g6b
     a              sh:NodeShape ;
     sh:severity    sh:Info ;
-    sh:message     "Definice je krátší než 10 znaků."@cs,
+    sh:message     "Definice je kratší než 10 znaků."@cs,
                    "The definition is shorter than 10 characters."@en ;
     sh:targetClass skos:Concept ;
     sh:path        skos:definition ;
