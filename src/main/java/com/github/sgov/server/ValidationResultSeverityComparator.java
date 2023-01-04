@@ -13,11 +13,7 @@ public class ValidationResultSeverityComparator implements Comparator<Validation
             = Arrays.stream(ShaclSeverity.values()).filter(s ->
             s.getUri().equals(result.getSeverity().getURI())
         ).findFirst();
-        if (severity.isPresent()) {
-            return severity.get();
-        } else {
-            return null;
-        }
+        return severity.orElse(null);
     }
 
     /**

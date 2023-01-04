@@ -1,24 +1,21 @@
 package com.github.sgov.server;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Logger;
-import org.apache.jena.atlas.logging.LogCtl;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.util.FileUtils;
 import org.topbraid.jenax.progress.NullProgressMonitor;
-import org.topbraid.jenax.progress.SimpleProgressMonitor;
 import org.topbraid.jenax.util.JenaUtil;
-import org.topbraid.shacl.rules.RuleEngine;
 import org.topbraid.shacl.rules.RuleUtil;
 import org.topbraid.shacl.validation.ResourceValidationReport;
 import org.topbraid.shacl.validation.ValidationReport;
 import org.topbraid.shacl.validation.ValidationUtil;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @SuppressWarnings("MissingJavadocType")
 public class Validator {
@@ -75,18 +72,24 @@ public class Validator {
         return vocabularyRules;
     }
 
-    private Model getRulesModel(final Collection<URL> rules) throws IOException {
+    /**
+     * Loads a model containing validation rules retrieved from URLs in the specified collection.
+     *
+     * @param rules URLs of validation rules
+     * @return Jena model with the validation rules
+     * @throws IOException When unable to load ony of the rules
+     */
+    public static Model getRulesModel(final Collection<URL> rules) throws IOException {
         final Model shapesModel = JenaUtil.createMemoryModel();
         for (URL r : rules) {
-            shapesModel
-                .read(r.openStream(), null, FileUtils.langTurtle);
+            shapesModel.read(r.openStream(), null, FileUtils.langTurtle);
         }
         return shapesModel;
     }
 
     /**
-     * Validates the given model with vocabulary data (glossaries, models) against the given ruleset
-     * and inference rules.
+     * Validates the given model with vocabulary data (glossaries, models) against the given ruleset and inference
+     * rules.
      *
      * @param dataModel model with data to validate
      * @param ruleSet   set of rules (see 'resources') used for validation
@@ -95,13 +98,24 @@ public class Validator {
     public ValidationReport validate(final Model dataModel, final Set<URL> ruleSet)
         throws IOException {
         final Model shapesModel = getRulesModel(ruleSet);
+        return validate(dataModel, shapesModel);
+    }
+
+    /**
+     * Validates the given model with vocabulary data (glossaries, models) against the given shapes model containing
+     * validation rules and the default inference rules provided by this validator.
+     *
+     * @param dataModel   model with data to validate
+     * @param shapesModel model with validation rules
+     * @return validation report
+     */
+    public ValidationReport validate(final Model dataModel, final Model shapesModel) {
         shapesModel.add(this.shapesModel);
 
         dataModel.add(mappingModel);
 
-        final Model inferredModel = RuleUtil
-            .executeRules(dataModel, shapesModel, null,
-                new NullProgressMonitor());
+        final Model inferredModel = RuleUtil.executeRules(dataModel, shapesModel, null,
+                                                          new NullProgressMonitor());
         dataModel.add(inferredModel);
 
         final Resource report = ValidationUtil.validateModel(dataModel, shapesModel, true);
