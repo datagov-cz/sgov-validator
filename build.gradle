@@ -45,7 +45,7 @@ jar {
 ext.genOutputDir = file("$buildDir/generated-resources")
 
 task generateZSGoVUFOMapping(type: Download) {
-    src 'https://raw.githubusercontent.com/opendata-mvcr/ssp/master/content/vocabularies/z-sgov/z-sgov-mapov%C3%A1n%C3%AD-ufo.ttl'
+    src 'https://raw.githubusercontent.com/datagov-cz/ssp/master/content/vocabularies/z-sgov/z-sgov-mapov%C3%A1n%C3%AD-ufo.ttl'
     dest new File("$genOutputDir", 'z-sgov-mapping.ttl')
 }
 
@@ -55,7 +55,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/opendata-mvcr/sgov-validator")
+            url = uri("https://maven.pkg.github.com/datagov-cz/sgov-validator")
             credentials {
                 username = project.findProperty("gpr.user") ?: System.getenv("GPR_USER")
                 password = project.findProperty("gpr.key") ?: System.getenv("GPR_TOKEN")
